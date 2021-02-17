@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/panjang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/panjang"
@@ -20,12 +20,13 @@
         android:id="@+id/inputPanjang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/lebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/lebar"
@@ -43,10 +44,10 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tinggi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lebar"
+        android:text="@string/tinggi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.345"
@@ -56,8 +57,9 @@
         android:id="@+id/inputTinggi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.416"
         tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -65,8 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:onClick="showResultVolume"
-        android:text="-"
+        android:text="Result Volume"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,13 +78,14 @@
         android:id="@+id/resultTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="248dp"
         android:text="@string/hasil"
         android:textAlignment="center"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
