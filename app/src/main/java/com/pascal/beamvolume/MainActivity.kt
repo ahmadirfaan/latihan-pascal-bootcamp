@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.fragment_show_counter_frament.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,5 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-
+    fun controllerData(value: Int) {
+        counterValue.text = value.toString()
+    }
 }
