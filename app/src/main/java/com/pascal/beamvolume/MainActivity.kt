@@ -2,20 +2,39 @@ package com.pascal.beamvolume
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.fragment_show_counter_fragment.*
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CounterInterface {
+
+    private lateinit var counterFragment: CounterFragment
+    private lateinit var counterShowFragment: ShowCounterFragment
+    private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        counterFragment = fragment1 as CounterFragment
+        counterShowFragment = fragment2 as ShowCounterFragment
+        println("MAIN ACTIVITY THIS : $this")
     }
 
-    fun controllerData(value: Int) {
-        counterValue.text = value.toString()
+    fun toSecondActivity(view: View) {
+        startActivity(Intent(this,SecondActivity::class.java))
     }
+
+    override fun increment() {
+        counter++
+        println("COUNTER $counter")
+        counterShowFragment.notifyShowCounter(counter)
+    }
+
+    override fun decrement() {
+        counter--
+        println("COUNTER $counter")
+        counterShowFragment.notifyShowCounter(counter)
+    }
+
+
 }

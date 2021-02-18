@@ -9,12 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_counter.*
 
-class CounterFragment : Fragment() {
+class CounterFragment : Fragment(), View.OnClickListener {
 
-    private var showCounter: Int = 0
+    private lateinit var counterHandler: CounterInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        counterHandler = activity as CounterInterface
     }
 
     override fun onCreateView(
@@ -25,20 +26,22 @@ class CounterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val activity = activity as MainActivity
-
-        increaseButton.setOnClickListener {
-            showCounter++
-            activity.controllerData(showCounter)
-        }
-
-        decreaseButton.setOnClickListener {
-            showCounter--
-            activity.controllerData(showCounter)
-        }
-
+        increaseButton.setOnClickListener(this)
+        decreaseButton.setOnClickListener(this)
     }
 
+    override fun onClick(v: View?) {
+        when(v) {
+            increaseButton -> {
+                println("INCREASE BUTTON DIPANGGIL")
+                counterHandler.increment()
+            }
+            decreaseButton -> {
+                println("DECREASE BUTTON DIPANGGIL")
+                counterHandler.decrement()
+            }
+        }
+    }
 
     companion object {
         @JvmStatic

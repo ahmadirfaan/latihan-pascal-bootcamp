@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GO TO FRAGMENT TWO"
-<!--            android:onClick="toSecondActivity"-->
+            android:onClick="toSecondActivity"
             />
 
         <fragment
