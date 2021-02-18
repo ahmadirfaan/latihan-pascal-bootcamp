@@ -6,7 +6,7 @@
     android:id="@+id/frameLayout2"
     android:layout_height="match_parent"
     android:background="@color/purple"
-    tools:context=".ShowCounterFrament">
+    tools:context=".ShowCounterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

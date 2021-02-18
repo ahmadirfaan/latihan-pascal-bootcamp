@@ -1,10 +1,12 @@
 package com.pascal.beamvolume
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_counter.*
 
 class CounterFragment : Fragment() {
@@ -15,7 +17,8 @@ class CounterFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_counter, container, false)
     }
@@ -25,14 +28,28 @@ class CounterFragment : Fragment() {
         val activity = activity as MainActivity
 
         increaseButton.setOnClickListener {
+            if (showCounter >= 0) {
+                decreaseButton.setEnabled(true)
+            }
             showCounter++
             activity.controllerData(showCounter)
         }
-        decreaseButton.setOnClickListener( {
+
+        decreaseButton.setOnClickListener {
             showCounter--
+            if (showCounter < 0) {
+                val myToast =
+                    Toast.makeText(requireContext(), "Tidak bisa negative dong", Toast.LENGTH_SHORT)
+                myToast.setGravity(Gravity.LEFT, 200, 200)
+                myToast.show()
+                decreaseButton.setEnabled(false)
+                showCounter = 0
+            }
             activity.controllerData(showCounter)
-        })
+        }
+
     }
+
 
     companion object {
         @JvmStatic

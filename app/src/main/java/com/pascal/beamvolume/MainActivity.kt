@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.fragment_show_counter_frament.*
+import kotlinx.android.synthetic.main.fragment_show_counter_fragment.*
 
 class MainActivity : AppCompatActivity() {
 

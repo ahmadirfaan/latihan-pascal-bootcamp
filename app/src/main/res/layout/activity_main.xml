@@ -23,7 +23,7 @@
 
         <fragment
             android:id="@+id/fragment2"
-            android:name="com.pascal.beamvolume.ShowCounterFrament"
+            android:name="com.pascal.beamvolume.ShowCounterFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
