@@ -28,23 +28,12 @@ class CounterFragment : Fragment() {
         val activity = activity as MainActivity
 
         increaseButton.setOnClickListener {
-            if (showCounter >= 0) {
-                decreaseButton.setEnabled(true)
-            }
             showCounter++
             activity.controllerData(showCounter)
         }
 
         decreaseButton.setOnClickListener {
             showCounter--
-            if (showCounter < 0) {
-                val myToast =
-                    Toast.makeText(requireContext(), "Tidak bisa negative dong", Toast.LENGTH_SHORT)
-                myToast.setGravity(Gravity.LEFT, 200, 200)
-                myToast.show()
-                decreaseButton.setEnabled(false)
-                showCounter = 0
-            }
             activity.controllerData(showCounter)
         }
 
